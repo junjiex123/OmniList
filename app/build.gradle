@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdkVersion 27
     defaultConfig {
         applicationId "me.shouheng.omnilist"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -14,25 +14,10 @@ android {
     }
     signingConfigs {
         release {
-            Properties poperties = new Properties()
-            poperties.load(new FileInputStream('../OmniList-SignConfigs/config.properties'))
-            keyAlias 'key0'
-            storeFile file('../../OmniList-SignConfigs/palm.jks')
-            storePassword poperties.getProperty("storePassword")
-            keyPassword poperties.getProperty("keyPassword")
         }
     }
     buildTypes {
         release {
-            signingConfig signingConfigs.release
-            minifyEnabled true
-            shrinkResources true // enable shrink resources
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-        applicationVariants.all { variant ->
-            variant.outputs.all { output ->
-                outputFileName = defaultConfig.applicationId + "-" + variant.baseName + "-" + defaultConfig.versionName + "-" + defaultConfig.versionCode + ".apk";
-            }
         }
     }
     dataBinding {
