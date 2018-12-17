@@ -33,7 +33,7 @@ ext {
     jodaTimeVersion = '2.9.9'
     gsonVersion = '2.7'
 
-    supportLibVersion = '27.1.0'
+    supportLibVersion = '27.1.1'
     archVersion = '1.1.0'
 }
 

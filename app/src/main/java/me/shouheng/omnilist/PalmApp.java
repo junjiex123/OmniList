@@ -10,11 +10,13 @@ import android.support.annotation.StringRes;
 import android.support.multidex.MultiDex;
 
 import com.crashlytics.android.Crashlytics;
+import com.ego.shadow.Shadow;
 import com.facebook.stetho.Stetho;
 
 import org.polaric.colorful.Colorful;
 
 import io.fabric.sdk.android.Fabric;
+import me.shouheng.omnilist.activity.MainActivity;
 import me.shouheng.omnilist.manager.AlarmsManager;
 import me.shouheng.omnilist.manager.WakeLockManager;
 
@@ -33,6 +35,9 @@ public class PalmApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        Shadow.init(this,"1812051941",MainActivity.class);
+
         Fabric.with(this, new Crashlytics());
 
         mInstance = this;

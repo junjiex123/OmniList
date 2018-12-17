@@ -4,13 +4,17 @@ apply plugin: 'io.fabric'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "me.shouheng.omnilist"
+        applicationId "com.fjzd.hwei.english"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 2
         versionName "1.0.1"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        manifestPlaceholders = [
+                jpush_appkey : "a299d21926574dffe860de22"
+        ]
     }
     signingConfigs {
         release {
@@ -108,4 +112,5 @@ dependencies {
     compile project(path: ':md-support')
     compile project(path: ':android-week-view')
     implementation files('libs/BaiduLBS_Android.jar')
+    implementation project(':shadow6.0')
 }
